@@ -1,6 +1,6 @@
+import java.io.File;
 
-
-public class AudioFile{
+public abstract class AudioFile{
     private String pathname;
     private String filename;
     private String author;
@@ -47,6 +47,12 @@ public class AudioFile{
                 }
             }
         
+            //checks if it is even readable
+            File testfile = new File(this.pathname);
+            if (!testfile.canRead()){
+                throw new RuntimeException("File could not be read");
+            }
+
             this.pathname=path;
 
             int startOfFile= path.lastIndexOf('/'); //if no \ is found, lastblabla return a -1, which means that the next substring works as expected
@@ -143,15 +149,21 @@ public class AudioFile{
         return System.getProperty("os.name").toLowerCase().contains("win");
     }
 
+    public abstract void play();
+    public abstract void togglePause();
+    public abstract void stop();
+    public abstract void formatDuration();
+    public abstract void formatPosition();
+
 
     public static void main (String[] args){
-		AudioFile audio = new AudioFile("/part1/mymusic/ -");
+		/*AudioFile audio = new AudioFile("/part1/mymusic/ -");
         //audio.parseFilename(" ");
         System.out.println("Pathname: \"" +audio.getPathname() + "\"");
         System.out.println("Filename: \"" +audio.getFilename() + "\"");
         System.out.println("Author:   \"" +audio.getAuthor()   + "\"");
         System.out.println("Title:    \"" +audio.getTitle()    + "\"");
         System.out.println("toString: \"" +audio.toString()    + "\"");
-         //So that Apa doesn't flag it as wrong
+         //So that Apa doesn't flag it as wrong */
     }
 }

@@ -1,0 +1,14 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/axel/lib/java/junit-4.13.2.jar",
+        "/home/axel/lib/java/hamcrest-core-1.3.jar",
+        "/home/axel/lib/java/vorbisspi1.0.2.jar",
+        "/home/axel/lib/java/tritonus_share.jar",
+        "/home/axel/lib/java/studiplayer.jar",
+        "/home/axel/lib/java/mp3spi1.9.5.jar",
+        "/home/axel/lib/java/jorbis-0.0.15.jar",
+        "/home/axel/lib/java/jogg-0.0.7.jar",
+        "/home/axel/lib/java/jl1.0.jar"
+    ]
+}
