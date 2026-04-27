@@ -41,12 +41,15 @@ public class Vigenere{
         return encodedString;
     }
 
-    static public void main (){
+    public static void main (String[] args){
         //System.out.println("Please input your password");
         //Scanner scan = new Scanner(System.in);
-        Vigenere vig = new Vigenere("Ingolstadt_Stadt");
-        vig.encode("Dies ist ein Test, ob dies funktioniert");
-        vig.decode();
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        Vigenere vig;
+        for (int i =0; i<alphabet.length; i++){
+            vig = new Vigenere(""+alphabet[i]);
+            vig.decode("vwdqlvqrwzkdwkhvhhpv");
+        }
     }
     
     

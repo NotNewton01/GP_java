@@ -1,4 +1,4 @@
-import java.io.File;
+
 
 public abstract class AudioFile{
     private String pathname;
@@ -7,8 +7,8 @@ public abstract class AudioFile{
     private String title;
     
     
-    public AudioFile(){
-    }
+    public AudioFile(){};
+    
     @SuppressWarnings("OverridableMethodCallInConstructor") //else Visual studio code just likes to protest
     public AudioFile(String path) {
         this.parsePathname(path);
@@ -47,12 +47,6 @@ public abstract class AudioFile{
                 }
             }
         
-            //checks if it is even readable
-            File testfile = new File(this.pathname);
-            if (!testfile.canRead()){
-                throw new RuntimeException("File could not be read");
-            }
-
             this.pathname=path;
 
             int startOfFile= path.lastIndexOf('/'); //if no \ is found, lastblabla return a -1, which means that the next substring works as expected
@@ -108,7 +102,7 @@ public abstract class AudioFile{
 
     }
 
-    private String removeStrTra(String haystack, char needle){ //removes STaRting and TRAiling needles from haystack
+    private String removeStrTra(String haystack, char needle){ //removes STaRting and TRAiling needles from haystack Also known as "trim", but I didn't know that
         //remove starting spaces
         if (haystack.equals("")){
             return ""; //else haystack.charAt(0) outputs an error
@@ -150,11 +144,14 @@ public abstract class AudioFile{
     }
 
     public abstract void play();
-    public abstract void togglePause();
-    public abstract void stop();
-    public abstract void formatDuration();
-    public abstract void formatPosition();
 
+    public abstract void togglePause();
+
+    public abstract void stop();
+
+    public abstract String formatDuration();
+
+    public abstract String formatPosition();
 
     public static void main (String[] args){
 		/*AudioFile audio = new AudioFile("/part1/mymusic/ -");
@@ -164,6 +161,6 @@ public abstract class AudioFile{
         System.out.println("Author:   \"" +audio.getAuthor()   + "\"");
         System.out.println("Title:    \"" +audio.getTitle()    + "\"");
         System.out.println("toString: \"" +audio.toString()    + "\"");
-         //So that Apa doesn't flag it as wrong */
-    }
+        */
+        }
 }

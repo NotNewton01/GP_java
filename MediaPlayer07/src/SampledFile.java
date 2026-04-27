@@ -8,18 +8,26 @@ public abstract class SampledFile extends AudioFile {
         super(path);
     }
 
-    /*public void play(){}
+    @Override
+    public void play(){}
 
+    @Override
     public void togglePause(){}
 
+    @Override
     public void stop(){}
 
-    public void formatDuration(){}
+    @Override
+    public String formatDuration(){
+        return "";
+    }
 
-    public void formatPosition(){}
-    */ //isn't exactly this given by the abstract class? 
-    //In the umc diagramm, this was shown to be specifically in this class to?
-    public static String timeFormatter(long timeinMicroSeconds){
+    @Override
+    public String formatPosition(){
+        return "";
+    }
+
+    public static String timeFormatter(long timeInMicroSeconds){
         return "";
     }
 

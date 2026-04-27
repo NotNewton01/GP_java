@@ -2,4 +2,5 @@
 
 set -e
 
+javac -cp ~/lib/java:./src -d ./out ./src/*.java
 
